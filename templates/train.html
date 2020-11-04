@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block title %} Train {% endblock %}
+
+{% block body %}
+
+<div class="container d-flex h-100">
+    <div class="row align-self-center w-100">
+        <h1>Masukkan Parameter Pelatihan dan Dataset berformat .xlsx</h1>
+        <ul class="list-group">
+            <li class="list-group-item active">Masukkan Dataset</li>
+            <li class="list-group-item">
+                <form action="" method=post enctype=multipart/form-data>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <p><strong>Masukkan Parameter</strong></p>
+                            </tr>
+                            <tr>
+                                <th scope="col">Neuron Masuk</th>
+                                <th scope="col">Neuron Tersembunyi</th>
+                                <th scope="col">Neuron Keluar</th>
+                                <th scope="col">Learning Rate</th>
+                                <th scope="col">Toleransi Error</th>
+                                <th scope="col">Iterasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="n_input" class="form-control" value="5" readonly>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="n_hidden" class="form-control" value="4" readonly>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="n_output" class="form-control" value="1" readonly>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="alpha" class="form-control" value="0.8">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="toleransi_error" class="form-control" value="0.001">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" name="iterasi" class="form-control" value="1000">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">Masukkan Dataset : 
+                                    <span class="btn btn-default btn-file">
+                                        Browse <input type="file" name='file'>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"><button type=submit value=Upload class='btn'>prediksi</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

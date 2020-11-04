@@ -1,0 +1,20 @@
+## percobaan 1 berdasarkan Ep
+- LR : 0.2, Ep : 10 (MSE terkecil : 0.04247 pada fold ke-3, MSE/RMSE Pengujian : 0.11879/0.34466, sifat hujan benar : 2/8)
+- LR : 0.2, Ep : 500 (MSE terkecil : 0.01233 pada fold ke-4, MSE/RMSE Pengujian : 0.03192/0.17866, sifat hujan benar : 4/8)
+- LR : 0.2, Ep : 1000 (MSE terkecil : 0.01241 pada fold ke-4, MSE/RMSE Pengujian : 0.02996/0.17309, sifat hujan benar : 4/8)
+## percobaan 2 berdasarkan Ep
+- LR : 0.4, Ep : 10 (MSE terkecil : 0.03559 pada fold ke-3, MSE/RMSE Pengujian : 0.08947/0.29912, sifat hujan benar : 2/8)
+- LR : 0.4, Ep : 500 (MSE terkecil : 0.01522 pada fold ke-4, MSE/RMSE Pengujian : 0.03092/0.17584, sifat hujan benar : 3/8)
+- LR : 0.4, Ep : 1000 (MSE terkecil : 0.01843 pada fold ke-4, MSE/RMSE Pengujian : 0.04483/0.21173, sifat hujan benar : 2/8)
+## percobaan 3 berdasarkan Ep
+- LR : 0.6, Ep : 10 (MSE terkecil : 0.03175 pada fold ke-3, MSE/RMSE Pengujian : 0.06219/0.24938, sifat hujan benar : 3/8)
+- LR : 0.6, Ep : 500 (MSE terkecil : 0.01595 pada fold ke-4, MSE/RMSE Pengujian : 0.02765/0.16628, sifat hujan benar : 3/8)
+- LR : 0.6, Ep : 1000 (MSE terkecil : 0.01697 pada fold ke-4, MSE/RMSE Pengujian : 0.01946/0.1395, sifat hujan benar : 4/8)
+## percobaan 4 berdasarkan Ep
+- LR : 0.8, Ep : 10 (MSE terkecil : 0.02086 pada fold ke-4, MSE/RMSE Pengujian : 0.03461/0.18604, sifat hujan benar : 3/8)
+- LR : 0.8, Ep : 500 (MSE terkecil : 0.01667 pada fold ke-4, MSE/RMSE Pengujian : 0.02881/0.16974, sifat hujan benar : 4/8)
+- LR : 0.8, Ep : 1000 (MSE terkecil : 0.01144 pada fold ke-4, MSE/RMSE Pengujian : 0.02838/0.16846, sifat hujan benar : 5/8)
+
+
+
+

@@ -1,0 +1,203 @@
+{% extends 'layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="container d-flex h-100">
+    <div class="row align-self-center w-100">
+        <div class="col-6 mx-auto">            
+            <font size="3">
+            <h1>Proses Pelatihan Menentukan Model Terbaik</h1><br/>
+            <ul class="list-group">
+                <li class="list-group-item active"><h3>Parameter</h3></li>
+                <li class="list-group-item">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Paramater</th>
+                                <th scope="col">Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody>  
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Neuron Masuk</td>
+                                <td>{{ dataInputPickle }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Neuron Tersembunyi</td>
+                                <td>{{ dataHiddenPickle }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Neuron Keluar</td>
+                                <td>{{ dataOutputPickle }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Learning Rate</td>
+                                <td>{{ dataAlphaPickle }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Toleransi Eror</td>
+                                <td>{{ dataToleransiErrorPickle }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Iterasi</td>
+                                <td>{{ dataIterasiPickle }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item active"><h3>Proses Pelatihan</h3></li>
+                <li class="list-group-item">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">K-Fold</th>
+                                <th scope="col">Split (Pelatihan : Validasi)</th>
+                                <th scope="col">MSE Validasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(0, len) %}                   
+                                <tr>
+                                <th>{{ dataKfoldPickle[i] }}</th>
+                                <td>({{ len_train[i] }} : {{ len_test[i] }})</td>
+                                <td>{{ dataErrorPengujian[i] }}</td>
+                            {% endfor %}
+                            </tr>
+                            <tr>
+                                <th colspan="3"> MSE pengujian terkecil : {{ dataErrorPengujianTerkecil }}, pada index : {{ PosisiTerkecil + 1 }}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </h4>
+                </li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item active">Grafik MSE Pelatihan dari MSE Fold Terkecil</li>
+                <li class="list-group-item">
+                    <tr>
+                        <td style="align-self-center">
+                            <center>
+                                <canvas id="myChart" width="1100" height="500"></canvas>
+                                <p id="pointSelected">Point selected:</p>
+                            
+                                <script>
+                                  // Global parameters:
+                                  // do not resize the chart canvas when its container does (keep at 600x400px)
+                                  Chart.defaults.global.responsive = false;
+                            
+                                  // define the chart data
+                                  var chartData = {
+                                    labels : [{% for item in dataIterasinya %}
+                                               "{{item}}",
+                                              {% endfor %}],
+                                    datasets : [{
+                                        label: '{{ legend }}',
+                                        fill: true,
+                                        lineTension: 0.1,
+                                        backgroundColor: "rgba(75,192,192,0.4)",
+                                        borderColor: "rgba(75,192,192,1)",
+                                        borderCapStyle: 'butt',
+                                        borderDash: [],
+                                        borderDashOffset: 0.0,
+                                        borderJoinStyle: 'miter',
+                                        pointBorderColor: "rgba(75,192,192,1)",
+                                        pointBackgroundColor: "#fff",
+                                        pointBorderWidth: 1,
+                                        pointHoverRadius: 5,
+                                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                                        pointHoverBorderWidth: 2,
+                                        pointRadius: 1,
+                                        pointHitRadius: 10,
+                                        data : [{% for item in MSEPelatihan %}
+                                                  {{item}},
+                                                {% endfor %}],
+                                        spanGaps: false
+                                    }]
+                                  }
+                            
+                                  // get chart canvas
+                                  var holder = document.getElementById("myChart");
+                                  var ctx = document.getElementById("myChart").getContext("2d");
+                            
+                                  // create the chart using the chart canvas
+                                  var myChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: chartData,
+                                    options: {
+                                      tooltips: {
+                                        enabled: true,
+                                        mode: 'single',
+                                        callbacks: {
+                                          label: function(tooltipItems, data) {
+                                                   return tooltipItems.yLabel + ' degrees';
+                                                 }
+                                        }
+                                      },
+                                    }
+                                  });
+                            
+                                  // get the text element below the chart
+                                  var pointSelected = document.getElementById("pointSelected");
+                            
+                                  // create a callback function for updating the selected index on the chart
+                                  holder.onclick = function(evt){
+                                    var activePoint = myChart.getElementAtEvent(evt);
+                                    console.log(activePoint);
+                                    console.log('x:' + activePoint[0]._view.x);
+                                    console.log('maxWidth: ' + activePoint[0]._xScale.maxWidth);
+                                    console.log('y: ' + activePoint[0]._view.y);
+                                    console.log('index: ' + activePoint[0]._index);
+                                    pointSelected.innerHTML = 'Point selected... index: ' + activePoint[0]._index;
+                                  };
+                                </script>
+                            </center>
+                        </td>
+                    </tr>
+                   
+                </li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item active">Bobot V Awal Dari Fold Eror Terkecil</li>
+                {% for i in range(0, banyakDataAwalV) %}
+                <li class="list-group-item">{{ namaV[i] }} = {{ dataAwalV[i] }}</li>
+                {% endfor %}
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item active">Bobot W Awal Dari Fold Eror Terkecil</li>
+                {% for i in range(0, banyakDataAwalW) %}
+                <li class="list-group-item">{{ namaW[i] }} = {{ dataAwalW[i] }}</li>
+                {% endfor %}
+            </ul>
+            
+            <ul class="list-group">
+                <li class="list-group-item active">Bobot V Fold Eror Terkecil (Iterasi ke : {{dataIterasiPickle}})</li>
+                {% for i in range(0, banyakDataV) %}
+                <li class="list-group-item">{{ namaV[i] }} = {{ dataV[i] }}</li>
+                {% endfor %}
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item active">Bobot W Fold Eror Terkecil (Iterasi ke : {{dataIterasiPickle}})</li>
+                {% for i in range(0, banyakDataW) %}
+                <li class="list-group-item">{{ namaW[i] }} = {{ dataW[i] }}</li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+        </font>
+        </div>
+    </div>
+</div>

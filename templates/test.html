@@ -1,0 +1,523 @@
+{% extends 'layout.html' %}
+
+{% block title %} Test {% endblock %}
+
+{% block body %}
+<script src='Chart.min.js'></script>
+<div class="container d-flex h-100">
+    <div class="row align-self-center w-100">
+        <font size="3">
+        <div class="col-6 mx-auto">
+            <h1>Masukkan Dataset Berformat .xlsx</h1>
+            
+            <ul class="list-group">
+                <li class="list-group-item active">Masukkan Dataset</li>
+                <li class="list-group-item">
+                    <form action="/test" method="POST" enctype=multipart/form-data>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <p><strong>Masukkan Dataset</strong></p>
+                                </tr>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">xt-1</th>
+                                    <th scope="col">xt-11</th>
+                                    <th scope="col">xt-12</th>
+                                    <th scope="col">xt-13</th>
+                                    <th scope="col">xt-24</th>
+                                    <th scope="col">y</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_1" class="form-control" id="xt_1_1" value="133.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_1" class="form-control" id="xt_11_1" value="339">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_1" class="form-control" id="xt_12_1" value="380.4">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_1" class="form-control" id="xt_13_1" value="146.3">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_1" class="form-control" id="xt_24_1" value="243.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_1" class="form-control" id="y_1" value="209.1">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_2" class="form-control" id="xt_1_2" value="209.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_2" class="form-control" id="xt_11_2" value="227.3">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_2" class="form-control" id="xt_12_2" value="339">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_2" class="form-control" id="xt_13_2" value="380.4">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_2" class="form-control" id="xt_24_2" value="245.8">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_2" class="form-control" id="y_2" value="475.8">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_3" class="form-control" id="xt_1_3" value="475.8">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_3" class="form-control" id="xt_11_3" value="288.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_3" class="form-control" id="xt_12_3" value="227.3">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_3" class="form-control" id="xt_13_3" value="339">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_3" class="form-control" id="xt_24_3" value="279.6">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_3" class="form-control" id="y_3" value="348.5">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_4" class="form-control" id="xt_1_4" value="348.5">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_4" class="form-control" id="xt_11_4" value="5.6">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_4" class="form-control" id="xt_12_4" value="288.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_4" class="form-control" id="xt_13_4" value="227.3">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_4" class="form-control" id="xt_24_4" value="62.8">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_4" class="form-control" id="y_4" value="327.2">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_5" class="form-control" id="xt_1_5" value="327.5">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_5" class="form-control" id="xt_11_5" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_5" class="form-control" id="xt_12_5" value="5.6">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_5" class="form-control" id="xt_13_5" value="288.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_5" class="form-control" id="xt_24_5" value="3.7">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_5" class="form-control" id="y_5" value="91.1">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_6" class="form-control" id="xt_1_6" value="91.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_6" class="form-control" id="xt_11_6" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_6" class="form-control" id="xt_12_6" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_6" class="form-control" id="xt_13_6" value="5.6">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_6" class="form-control" id="xt_24_6" value="14.9">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_6" class="form-control" id="y_6" value="31.5">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_7" class="form-control" id="xt_1_7" value="31.5">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_7" class="form-control" id="xt_11_7" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_7" class="form-control" id="xt_12_7" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_7" class="form-control" id="xt_13_7" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_7" class="form-control" id="xt_24_7" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_7" class="form-control" id="y_7" value="21.7">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_1_8" class="form-control" id="xt_1_8" value="21.7">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_11_8" class="form-control" id="xt_11_8" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_12_8" class="form-control" id="xt_12_8" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_13_8" class="form-control" id="xt_13_8" value="0">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="xt_24_8" class="form-control" id="xt_24_8" value="28.5">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="y_8" class="form-control" id="y_8" value="14">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <p><strong>Masukkan Rata-rata Hujan</strong></p>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Januari</th>
+                                    <th scope="col">Februari</th>
+                                    <th scope="col">Maret</th>
+                                    <th scope="col">April</th>
+                                    <th scope="col">Mei</th>
+                                    <th scope="col">Juni</th>
+                                    <th scope="col">Juli</th>
+                                    <th scope="col">Agustus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r1" class="form-control" value="315.8">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r2" class="form-control" value="309.2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r3" class="form-control" value="264.7">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r4" class="form-control" value="187.5">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r5" class="form-control" value="103.9">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r6" class="form-control" value="57.4">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r7" class="form-control" value="23.3">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" name="r8" class="form-control" value="12.1">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><button type=submit value=Upload class='btn'>prediksi</button></p>
+                    </form>
+                </li>
+            </ul>
+            
+            <ul class="list-group">
+                <li class="list-group-item active">Grafik Peramalan dan Data Sebenarnya</li>
+                <li class="list-group-item">
+                    <tr>
+                        <td><button type="button" class="btn btn-primary" ></button> : Hasil Prediksi </td>
+                        <td><button type="button" class="btn btn-success" ></button> : Data Sebenarnya </td>
+                    </tr>
+                    <tr>
+                        <td style="align-self-center">
+                            <center>
+                                <div>
+                                    <canvas id="chart" width="900" height="500"></canvas>
+                                    <script>
+
+                                    // bar chart data
+                                    var barData = {
+                                        labels : [
+                                        {% for item in Bulan %}
+                                            "{{ item }}",
+                                        {% endfor %}
+                                        ],
+
+                                        datasets : [{
+                                        fillColor: "rgba(30, 144, 255,0.2)",
+                                        strokeColor: "rgba(30, 144, 255,1)",
+                                        pointColor: "rgba(30, 144, 255,1)",
+                                        pointStrokeColor: "#1E90FF",
+                                        pointHighlightFill: "#1E90FF",
+                                        pointHighlightStroke: "rgba(30, 144, 255,1)",
+                                        bezierCurve : false,
+                                        data : [
+                                        {% for item in y1 %}
+                                            {{ item }},
+                                            {% endfor %}]
+                                        },
+                                        
+                                        {
+                                        fillColor: "rgba(27, 128, 1,0.2)",
+                                        strokeColor: "rgba(27, 128, 1,1)",
+                                        pointColor: "rgba(27, 128, 1,1)",
+                                        pointStrokeColor: "#008000",
+                                        pointHighlightFill: "#008000",
+                                        pointHighlightStroke: "rgba(27, 128, 1,1)",
+                                        bezierCurve : false,
+                                        data : [
+                                        {% for item in y2 %}
+                                            {{ item }},
+                                            {% endfor %}]
+                                        }
+                                        ]
+                                    }
+
+                                    Chart.defaults.global.animationSteps = 50;
+                                    Chart.defaults.global.tooltipYPadding = 16;
+                                    Chart.defaults.global.tooltipCornerRadius = 0;
+                                    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+                                    Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+                                    Chart.defaults.global.animationEasing = "easeOutBounce";
+                                    Chart.defaults.global.responsive = false;
+                                    Chart.defaults.global.scaleLineColor = "black";
+                                    Chart.defaults.global.scaleFontSize = 16;
+
+                                    // get bar chart canvas
+                                    var mychart = document.getElementById("chart").getContext("2d");
+
+                                    steps = 10
+                                    max = {{ max }}
+                                    // draw bar chart
+                                    var LineChartDemo = new Chart(mychart).Line(barData, {
+                                        scaleOverride: true,
+                                        scaleSteps: steps,
+                                        scaleStepWidth: Math.ceil(max / steps),
+                                        scaleStartValue: 0,
+                                        scaleShowVerticalLines: true,
+                                        scaleShowGridLines : true,
+                                        barShowStroke : true,
+                                        scaleShowLabels: true,
+                                        bezierCurve: false,
+                                    });
+                                    </script>
+                                </center>
+                                </div>
+                            </center>
+                        </td>
+                    </tr>
+                   
+                </li>
+            </ul>
+            
+            <ul class="list-group">
+                <li class="list-group-item active">Hasil Prediksi</li>
+                <li class="list-group-item">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Bulan</th>
+                            <th scope="col">Data Sebenarnya</th>
+                            <th scope="col">Hasil Peramalan</th>
+                            <!-- <th scope="col">Output Normalisasi</th>
+                            <th scope="col">Hasil Normalisasi</th> -->
+                            <th scope="col">Eror/Kesalahan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for i in range(Bulan|length)%} 
+                        <tr>
+                            <td>{{Bulan[i]}}</td> 
+                            <td>{{y2[i]}}</td> 
+                            <td>{{y1[i]}}</td> 
+                            <!-- <td>{{y4[i]}}</td> 
+                            <td>{{y3[i]}}</td>  -->
+                            <td>{{errorPerBulan[i]}}</td> 
+                        {%endfor%} 
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Mean Square Error (MSE) : {{nilaiMSE}}</strong></p>
+                <p><strong>Root Mean Square Error (RMSE) : {{rmse}}</strong></p>
+                <!-- <p><strong>Akurasi (%) : {{akurasi}}</strong></p> -->
+                </li>
+            </ul>  
+
+            <ul class="list-group">
+                <li class="list-group-item active">Hasil Prediksi Sifat Bulan</li>
+                <li class="list-group-item">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Bulan</th>
+                            <th scope="col">Rata-rata Hujan</th>
+                            <th scope="col">Sifat Hujan Aktual</th>
+                            <th scope="col">Sifat Hujan Prediksi</th>
+                            <th scope="col">Sifat Benar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for i in range(Bulan|length)%} 
+                        <tr>
+                            <td>{{Bulan[i]}}</td> 
+                            <td>{{rataHujan[i]}}</td> 
+                            <td>{{sifatHujanOutput[i]}} : {{sifatHujanO[i]}}</td> 
+                            <td>{{sifatHujanPrediksi[i]}} : {{sifatHujanP[i]}}</td> 
+                            <td>{{konv[i]}}</td> 
+                        {%endfor%} 
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Jumlah Data : {{Banyak}}</strong></p>
+                <p><strong>Jumlah sifat hujan benar : {{banyakKonv}}</strong></p>
+                <p><strong>Persentase sifat hujan benar : {{banyakKonv}}*100/{{Banyak}} = {{nilaiKonv}}%</strong></p>
+                </li>
+            </ul>  
+        </div>
+    </font>
+    </div>
+</div>
+  
+
+{% endblock %}
